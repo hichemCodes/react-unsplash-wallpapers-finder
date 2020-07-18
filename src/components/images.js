@@ -17,6 +17,7 @@ const images = ({images,is_loading,new_favorite,get_current_img}) => {
           }
           
            document.querySelector('.show_img').classList.toggle('show_me');
+           
            document.querySelector('.img_full').style.backgroundImage = 'url('+link+')'; 
 
            document.querySelector('.d_full_img').setAttribute('href',download_link+'?force=true');
@@ -81,13 +82,7 @@ const images = ({images,is_loading,new_favorite,get_current_img}) => {
               return is_liked;
                
      }
-     // disable show img event when clicking to the like or diskike or download div
-     const disable_event = (event)=>{
-
-            console.log(event);
-     }
-     // count into images index
-     //var index = 1;
+    
 
     return  (is_loading) ? (<Loader/>)   : (
             

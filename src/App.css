@@ -17,10 +17,11 @@ body{
 }
 .App{
  display: flex;
- justify-content: center;
+ justify-content: flex-start;
  align-items: center;
  flex-direction: column;
  width: 100%;
+ min-height: 100vh;
    
 }
 .imgs{
@@ -67,7 +68,18 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
+  background: #fff;
+  z-index: 2000;
+  
+}
+
+.navbar .logo img{
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 5px;
+    left: -0.45%;
 }
 .navbar form{
   width: 40%;
@@ -150,7 +162,7 @@ body{
   }
 .cpt_results{
    font-size: .9rem;
-   margin: 50px 0px -5px 1%;
+   margin: 132px 0px -5px 1%;
    width: 98%;
    color: rgb(34, 34, 34) !important;
 
@@ -237,7 +249,7 @@ body{
   margin-right: 8px;
 }
 .c_item:hover{
-  border-color: black;
+  border:1px solid black;
 }
 .orders,.all_pages{
    width: 180px;
@@ -330,10 +342,11 @@ cursor: pointer;
   justify-content: space-between;
   align-items: center;
   padding : 6.5vh 8vh;
-  background: #ececec;
+  background: #f7f7f7;
   width: 100%;
   margin-top: 7vh;
 }
+
 .fotter .a-git{
      font-weight: bold;
 
@@ -454,4 +467,7 @@ cursor: pointer;
 }
 .slide_right i{
   margin-left: 7%;
+}
+.not-allowed{
+   cursor: not-allowed !important;
 }

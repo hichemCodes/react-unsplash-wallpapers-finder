@@ -5,7 +5,7 @@ import '../../../src/loader.css'
 const loader = () => {
     return (
        
-        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 
 
     )

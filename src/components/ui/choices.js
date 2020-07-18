@@ -12,14 +12,14 @@ const choices = ({orderBy,get_order,current_page,all_pages,change_page}) => {
         <div className="choices">
                 <span className="current_order c_item" onClick = {() => {show_orders() }}>Order by :  <strong> {orderBy} </strong> </span>
                 <div className="orders">
-                       <div className="o_item first_o" onClick = {() => {get_order('latest') }}>
+                       <div className="o_item first_o" onClick = {() => {get_order('latest'); change_page(1) }}>
                                     
                                    <div className={ (orderBy == 'latest' ) ? 'checkbox c_check' : 'checkbox' } id="by_latest">
                                          <div className="white_space"></div>
                                    </div>
                                    <label htmlFor="by_latest">latest</label>
                        </div>
-                       <div className="o_item" onClick = {() => {get_order('relevant') }}>
+                       <div className="o_item" onClick = {() => {get_order('relevant'); change_page(1)}}>
                                     
                                     <div className={(orderBy == 'relevant' ) ? 'checkbox c_check' : 'checkbox' } id="by_relevant">
                                         <div className="white_space"></div>
