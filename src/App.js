@@ -30,9 +30,6 @@ function App() {
   );
 
    //results par page
-
- 
-
   useEffect( () =>{
 
       const getPhotos = async() =>{
@@ -58,9 +55,32 @@ function App() {
 
   },[query,orderBy,page]);
 
+  // close pop ups when clicking in any element diffirent of pop ups 
+  const close_popups = (event)=>{
+  
+        const fav_pop_up = document.querySelectorAll('.pop-up-fav');
+        const all_pages_pop_up = document.querySelectorAll('.all_pages');
+        const order_pop_up = document.querySelectorAll('.orders');
+
+        const all_popups = [fav_pop_up,all_pages_pop_up,order_pop_up];
+
+        const target = event.target; // the element that we clicking in
+
+        if( target.closest('.c_item') || target.closest('.fa-heart') ||
+            target.closest('.cpt_fav') || target.closest('.orders') || target.closest('.clear_fav')) 
+        { return; }
+        else 
+        {
+            all_popups.forEach( (element)=>
+            {
+                 if (element[0].classList.contains('show_me'))  element[0].classList.remove('show_me');
+            });
+        }
+
+  }
 
   return (
-    <div className="App">
+    <div className="App" onClick = { (e)=> close_popups(e)}>
             
            
            
@@ -74,7 +94,7 @@ function App() {
                     get_cpt_result = { (new_cpt_result) => setCptResult(new_cpt_result)}
                   /> 
 
-            <span class="cpt_results"> {'+ '+cpt_results+ ' photos'}</span>
+            <span class="cpt_results"> {cpt_results+ ' photos'}</span>
             <span id="current_action">{'Search : '+query}</span>
 
             {(!show_choices) ? '' : // show choices component when show choices state is true
@@ -86,7 +106,10 @@ function App() {
             <Images images = {result}  is_loading = {is_loading}
                     new_favorite = { (new_favorite) =>{ setFavorites(new_favorite) } }
                     get_current_img = { (current_img) =>{ setCurrentimg(current_img) } }
+                    get_show_choices = { (new_show_choices)=> setShowchoices(new_show_choices)}
                    />
+            
+            
 
             <Showimg current_img = {current_img} per_page = {per_page}/>
 

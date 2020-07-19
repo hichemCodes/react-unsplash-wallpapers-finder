@@ -3,7 +3,7 @@ import Loader from '../components/ui/loader';
 import Footer from '../components/ui/Footer';
 
 
-const images = ({images,is_loading,new_favorite,get_current_img}) => {
+const images = ({images,is_loading,new_favorite,get_current_img,get_show_choices}) => {
 
 
      //show_a_image and close a image
@@ -82,13 +82,17 @@ const images = ({images,is_loading,new_favorite,get_current_img}) => {
               return is_liked;
                
      }
-    
+    // if images is empty
+    if (images.length == 0)  get_show_choices(false);
 
-    return  (is_loading) ? (<Loader/>)   : (
+    return  (is_loading) ? (<Loader/>)   : ( 
             
      <React.Fragment>
             <div className="imgs">
              { 
+                // if images is empty
+                (images.length == 0) ?  <span className="no_result">Oops! No results found !</span>
+                : //else 
                 images.map( (image,index) => (
                     
                     

@@ -11,7 +11,7 @@ const Navbar = ({get_query,favorites,new_favorite,show_choices,get_fav,get_per_p
     const show_favorites = (e)=>{
 
         
-        if(favorites == 0  /*|| show_choices*/){ return;} // if the favorites state is impty or we're already in favorite page
+        if(favorites == 0  || show_choices){ return;} // if the favorites state is impty or we're already in favorite page
         // else
         let favorites_id = JSON.parse(localStorage.getItem('favorites'));
         var allfavorites_array = [];
