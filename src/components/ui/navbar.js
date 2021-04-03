@@ -2,7 +2,7 @@ import React, {useState,useRef} from 'react';
 import axios from 'axios';
 import logo from '../../logo.png';
 
-const Navbar = ({get_query,favorites,new_favorite,show_choices,get_fav,get_per_page,get_show_choices,get_cpt_result}) => {
+const Navbar = ({get_query,favorites,new_favorite,show_choices,get_fav,get_per_page,get_show_choices,get_cpt_result,getShow_favorites_clicked}) => {
 
 
    let [allfavorites,setAllfavorites] = useState([]);
@@ -11,8 +11,10 @@ const Navbar = ({get_query,favorites,new_favorite,show_choices,get_fav,get_per_p
     const show_favorites = (e)=>{
 
         
-        if(favorites == 0  || show_choices){ return;} // if the favorites state is impty or we're already in favorite page
-        // else
+        if(favorites.length == 0  /*|| /*show_choices*/){ return;} // if the favorites state is empty or we're already in favorite page
+        else {
+
+        //e.target.click();
         let favorites_id = JSON.parse(localStorage.getItem('favorites'));
         var allfavorites_array = [];
 
@@ -26,14 +28,19 @@ const Navbar = ({get_query,favorites,new_favorite,show_choices,get_fav,get_per_p
         });
 
         
+
+        
         get_per_page(favorites);   // change the number of the all images
-        get_show_choices(false); //hide chices component
+        get_show_choices(true); //hide choices component
         get_cpt_result(favorites); // change the cpt result
         document.querySelector('#current_action').innerHTML = 'favorites'; // change title 
         setAllfavorites(allfavorites_array); // set all favorites state and re render 
         get_fav(allfavorites); // re render image component
        
-    
+        
+        console.log(allfavorites_array);
+        getShow_favorites_clicked(true);
+    }
    }
     
     // query of the search 
@@ -69,10 +76,10 @@ const Navbar = ({get_query,favorites,new_favorite,show_choices,get_fav,get_per_p
                           </div>
                 </div>
                 
-                <div className="pop-up-fav">
+                <div className="pop-up-fav ">
                           
-                                  <span className={ (favorites ==0) ? 'cpt_fav not-allowed' : 'cpt_fav'} onClick = {   (e)=> show_favorites(e) }> 
-                                        <span> {favorites} photos in favorites</span>
+                                  <span className={ (favorites ==0) ? 'cpt_fav not-allowed' : 'cpt_fav '} onClick = {   (e)=> show_favorites(e) }> 
+                                        <span > {favorites} photos in favorites</span>
                                   </span>   
                           
                           {

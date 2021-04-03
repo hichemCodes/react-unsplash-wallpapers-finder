@@ -15,13 +15,13 @@ function App() {
   const [result,setResult] = useState('');
   const [is_loading,setIsloading] = useState(true);
   const [cpt_results,setCptResult] = useState(0);
-  const [orderBy,setOrderBy] = useState('relevant');
+  const [orderBy,setOrderBy] = useState('latest');
   const [show_choices,setShowchoices] = useState(true);
   const [page,setPage] = useState(1);
   const [all_pages,setAllpages] = useState(1);
   const [per_page,setPerpage] = useState(30);
   const [current_img,setCurrentimg] = useState(0);
-
+  const [show_favorites_clicked,setShowFavoritesClicked] = useState(false);
 
   const [favorites,setFavorites] = useState(
      (localStorage.getItem('favorites')) != null
@@ -53,7 +53,7 @@ function App() {
 
 
 
-  },[query,orderBy,page]);
+  },[query,orderBy,page,show_favorites_clicked]);
 
   // close pop ups when clicking in any element diffirent of pop ups 
   const close_popups = (event)=>{
@@ -73,7 +73,7 @@ function App() {
         {
             all_popups.forEach( (element)=>
             {
-                 if (element[0].classList.contains('show_me'))  element[0].classList.remove('show_me');
+                // if (element[0].classList.contains('show_me'))  element[0].classList.remove('show_me');
             });
         }
 
@@ -92,6 +92,7 @@ function App() {
                     get_per_page = { (new_per_page)=> setPerpage(new_per_page)}
                     get_show_choices = { (new_show_choices)=> setShowchoices(new_show_choices)}
                     get_cpt_result = { (new_cpt_result) => setCptResult(new_cpt_result)}
+                    getShow_favorites_clicked = {  (new_favorites_cliked) => setShowFavoritesClicked(new_favorites_cliked)   }
                   /> 
 
             <span class="cpt_results"> {cpt_results+ ' photos'}</span>
