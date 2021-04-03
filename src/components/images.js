@@ -91,8 +91,8 @@ const images = ({images,is_loading,new_favorite,get_current_img,get_show_choices
             <div className="imgs">
              { 
                 // if images is empty
-                (images.length == 0) ?  <span className="no_result">Oops! No results found !</span>
-                : //else 
+                //(images.length == 0) ?  <span className="no_result">Oops! No results found !</span>
+                //: //else 
                 images.map( (image,index) => (
                     
                     

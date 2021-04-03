@@ -22,7 +22,7 @@ body{
  flex-direction: column;
  width: 100%;
  min-height: 100vh;
-   
+  position: relative;
 }
 .imgs{
   padding: 0px 0px 15px 0px;
@@ -33,7 +33,6 @@ body{
   grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
 
   grid-auto-flow: dense;
-
 }
 .imgs .small_img{
   
@@ -348,6 +347,9 @@ cursor: pointer;
   background: #f7f7f7;
   width: 100%;
   margin-top: 7vh;
+  position: absolute;
+  bottom: -32vh;
+  left : 0px;
 }
 
 .fotter .a-git{
