@@ -12,7 +12,7 @@ const Fotter =() =>{
                 <div className="licences">
                       <span>
                            Designed and Developed by 
-                          <a href="https://hichemcodes.netlify.app/" target="_blanck">Laouar Mohamed Hichem</a>
+                          <a href="https://hichemlaouar.netlify.app/" target="_blanck">LAOUAR Hichem</a>
                       </span>
                 </div>
                 <div className="powred_by"> 
